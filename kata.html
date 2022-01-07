@@ -27,6 +27,36 @@
     ];
    
     let num = data.length;
+    const app = document.querySelector("#app ul");
+    const inputByAdd = document.querySelector("#inputByAdd");
+    const buttonByAdd = document.querySelector("#buttonByAdd");
+
+
+    buttonByAdd.addEventListener('click', function() {
+      let val = inputByAdd.value;
+      inputByAdd.value = '';
+      addItem(val);
+    })
+
+    function render(){
+      let template = '';
+      data.forEach(item => {
+        template += `<li>
+                        ${item.content}
+                        <button type="button" class="btnRemove" data-id="${item.id}">X</button>
+                      </li>`;
+      })
+      app.innerHTML = template;
+
+      const btnsForRemove = document.querySelectorAll('.btnRemove');
+      btnsForRemove.forEach(btn => {
+        btn.addEventListener('click', function(evt) {
+          const id = Number.parseInt(evt.target.dataset.id);
+          removeItem(id);
+        });
+      });
+
+    }
 
     function addItem(content){
         num++;
@@ -34,16 +64,19 @@
             id: num,
             content
         })
+        render();
     }
 
-    function removeItem(params){
-
-        
-
+    function removeItem(id){
+      const index = data.findIndex((item)=>item.id==id);
+      data.splice(index, 1);
+      render();
     }
     
     addItem("我是老明");
-    console.log(data);
+    
+    
+    
   </script>
 </body>
 </html>
