@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div id="app"></div>
+    <div id="app2"></div>
+  </div>
+  <script>
+    const peopleArray = [
+      {
+        name: '卡斯伯',
+        like: '鍋燒意麵',
+        price: 95,
+      },
+      {
+        name: '瑞',
+        like: '炒麵',
+        price: 80,
+      },
+      {
+        name: '小明',
+        like: '黑胡椒燴飯',
+        price: 120,
+      },
+    ];
+    const app = document.querySelector('#app');
+    // #1 請將以下程式碼另外獨立成 ESModule
+    function render(arr, dom) {
+      const template = arr.map((item) => `<li>${item.name} 愛吃 ${item.like}</li>`).join('');
+      dom.innerHTML = template;
+    }
+    render(peopleArray, app);
+
+    // #2 請匯入剛剛的獨立檔案
+
+
+  </script>
+</body>
+</html>

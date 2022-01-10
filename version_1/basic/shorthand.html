@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // #1 語法糖與新增語法
+    // 語法糖：不會影響運作，邏輯與當前 JS 一致
+    const obj = {
+      myName: '物件',
+      fn: function() {
+        return this.myName;
+      }
+    }
+
+    console.log(obj.fn());
+
+    // #1.1 問：let, const 為新增語法還是語法糖？
+    // {
+    //   let a = 0;
+    //   var b = 0;
+    // };
+    // console.log(a); // a 的結果為？ 1. 數字 0  2. undefined  3. 等等，這個有詐
+    // console.log(b); // b 的結果為？ 1. 數字 0  2. undefined  3. 等等，這個有詐
+
+
+    // =====
+    // #2 物件字面值 Object literals
+    // #2-1 物件內的函式
+    // const obj3 = {
+    //   myName: '物件',
+    //   fn: function() { // 請改為縮寫
+    //     return this.myName;
+    //   }
+    // }
+
+    // console.log(obj3.fn());
+
+    // #2-2 物件內的變數
+    // const person = {
+    //   myName: '小明'
+    // };
+
+
+
+
+    // #3 展開
+    // #3-1 不同陣列合併
+    const groupA = ['小明', '杰倫', '阿姨'];
+    const groupB = ['老媽', '老爸'];
+    const groupAll = groupA.concat(groupB);
+
+    // #3-2 物件擴展
+    // 新增一個物件包含新方法，同時加入原有的方法
+    const methods = {
+      fn1() {
+        console.log(1);
+      },
+      fn2() {
+        console.log(1);
+      },
+    }
+
+
+    // #4 解構
+    // #4-1 取出單一物件值
+    const people = {
+      casper: {
+        name: '卡斯伯',
+        like: '鍋燒意麵',
+        price: 95
+      },
+      ray: {
+        name: '瑞',
+        like: '炒麵',
+        price: 80
+      },
+      ming: {
+        name: '小明',
+        like: '黑胡椒燴飯',
+        price: 120
+      },
+    };
+    // 請取出 casper, ray 物件作為單一變數
+    
+
+    // #4-2 避免物件值不存在
+
+  </script>
+</body>
+</html>

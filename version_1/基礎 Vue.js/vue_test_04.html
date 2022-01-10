@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    img {
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 畫面 -->
+  <div id="app">
+    <!-- Q: 如何將 people 多筆呈現於下方 -->
+    <div>
+      <h3>{{ item.name }}</h3>
+      <div>{{ item.like }}</div>
+      <button type="button">選我選我</button>
+      <!-- Q2: 如何加入事件監聽，將被選擇的物件加入至 temp 中 -->
+    </div>
+
+    <div>{{ temp }}</div>
+  </div>
+
+  <!-- JavaScript 程式碼 -->
+  <script type="module">
+  import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.26/vue.esm-browser.min.js';
+  const data = { // 資料
+    temp: {},
+    people: [
+      {
+        name: '卡斯伯',
+        like: '鍋燒意麵',
+        price: 95,
+        imageUrl: 'https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+      },
+      {
+        name: '瑞',
+        like: '炒麵',
+        price: 80,
+        imageUrl: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZnJpZWQlMjBub29kbGVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60'
+      },
+      {
+        name: '小明',
+        like: '黑胡椒燴飯',
+        price: 120,
+        imageUrl: 'https://images.unsplash.com/photo-1637362520022-81292a4bff4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+      },
+      {
+        name: '喬伊',
+        like: '生菜沙拉',
+        price: 80,
+        imageUrl: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+      }
+    ]
+  }
+
+  const app = {
+    data() {
+      return {
+        ...data,
+      }
+    }
+  }
+
+  createApp(app).mount('#app');
+  </script>
+
+</body>
+</html>

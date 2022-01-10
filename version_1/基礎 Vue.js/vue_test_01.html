@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    img {
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 畫面 -->
+  <div id="app">
+    {{ person.name }}
+  </div>
+
+  <!-- JavaScript 程式碼 -->
+  <script type="module">
+  import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.26/vue.esm-browser.min.js';
+  const data = { // 資料
+    temp: {},
+    person: {
+      name: '卡斯伯',
+      like: '鍋燒意麵',
+      price: 95,
+      imageUrl: 'https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+    }
+  }
+
+  const app = {
+    // Q: 請問如何將 “卡斯伯的名字呈現在畫面上”
+    // 條件：需使用上方定義的資料
+  }
+
+  // 使用 createApp 建立 Vue 應用，接下來使用 mount 掛載
+  createApp(app).mount('#app');
+  </script>
+
+</body>
+</html>

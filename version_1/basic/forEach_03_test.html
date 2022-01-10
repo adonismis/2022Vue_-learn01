@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <ul id="app">
+        <li></li>
+      </ul>
+      <ul>
+        <li>卡斯伯 愛吃 鍋燒意麵，每份 95 元</li>
+        <li>瑞 愛吃 炒麵，每份 80 元</li>
+        <li>小明 愛吃 黑胡椒燴飯，每份 120 元</li>
+      </ul>
+    </div>
+    <script>
+      const people = {
+        casper: {
+          name: '卡斯伯',
+          like: '鍋燒意麵',
+          price: 95,
+        },
+        ray: {
+          name: '瑞',
+          like: '炒麵',
+          price: 80,
+        },
+        ming: {
+          name: '小明',
+          like: '黑胡椒燴飯',
+          price: 120,
+        },
+      };
+      const peopleArray = [
+        {
+          name: '卡斯伯',
+          like: '鍋燒意麵',
+          price: 95,
+        },
+        {
+          name: '瑞',
+          like: '炒麵',
+          price: 80,
+        },
+        {
+          name: '小明',
+          like: '黑胡椒燴飯',
+          price: 120,
+        },
+      ];
+      const app = document.querySelector('#app');
+      function render() {
+        // # 基礎題：如何將以上的陣列轉為畫面上的結果
+        // # 進階挑戰：如何將以上的物件，轉為畫面上的結果
+      }
+      render();
+    </script>
+  </body>
+</html>
