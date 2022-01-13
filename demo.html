@@ -23,8 +23,8 @@
   </div>
 
   <script>
-  const url = ''; // 請加入站點
-  const path = ''; // 請加入個人 API Path
+  const url = 'https://vue3-course-api.hexschool.io/v2'; // 請加入站點
+  const path = 'adonismis'; // 請加入個人 API Path
 
   // #1 如何串接 API 資料
   
@@ -47,23 +47,47 @@
       username,
       password
     }
-
     // #2 發送 API 至遠端並登入（並儲存 Token）
-    
+    //https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie#%E7%A4%BA%E4%BE%8B2_%E5%BE%97%E5%88%B0%E5%90%8D%E4%B8%BAtest2%E7%9A%84cookie
+
+    axios.post(`${url}/admin/signin`, user)
+      .then((res)=>{
+        const {token, expires} = res.data;
+        document.cookie = `hexToken=${token}; expires=${new Date(expires)};`;
+      })
+      .catch((err)=>{
+        console.dir(err)
+      })
+
   }
 
   checkBtn.addEventListener('click', checkLogin);
   function checkLogin(params) {
-    // #3 取得 Token（Token 僅需要設定一次）
-    
-    
-    // #4  確認是否登入
-
+    axios.post(`${url}/api/user/check`)
+      .then((res)=>{
+        console.log(res.data);
+      })
+      .catch((err)=>{
+        console.dir(err)
+      })
   }
+
+  // #3 取得 Token（Token 僅需要設定一次）
+  const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+  
+  // #4  確認是否登入
+  axios.defaults.headers.common['Authorization'] = token;
 
   getProductsBtn.addEventListener('click', getProducts)
   function getProducts() {
     // #5 取得後台產品列表
+    axios.get(`${url}/api/${path}/admin/products/all`)
+      .then((res)=>{
+        console.log(res.data);
+      })
+      .catch((err)=>{
+        console.dir(err)
+      })
   }
 
 
@@ -85,12 +109,26 @@
     }
     
     // #6 新增一個產品
+    axios.post(`${url}/api/${path}/admin/product`, product)
+      .then((res)=>{
+        console.log(res.data);
+      })
+      .catch((err)=>{
+        console.dir(err)
+      })
   }
 
 
   delProductBtn.addEventListener('click', removeProduct)
   function removeProduct() {
     // #7 刪除一個產品
+    axios.delete(`${url}/api/${path}/admin/product/-MtHVY4hHF7bShxV5hKb`)
+      .then((res)=>{
+        console.log(res.data);
+      })
+      .catch((err)=>{
+        console.dir(err)
+      })
   }
 
   </script>

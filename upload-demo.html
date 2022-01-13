@@ -20,19 +20,37 @@
       id="file"
       placeholder="請輸入圖片連結"
     />
-
   </div>
 
   <script>
-  const url = ''; // 請加入站點
-  const path = ''; // 請加入個人 API Path
+  const url = 'https://vue3-course-api.hexschool.io/v2'; // 請加入站點
+  const path = 'adonismis'; // 請加入個人 API Path
+
 
   const fileInput = document.querySelector('#file');
 
   fileInput.addEventListener('change', upload);
 
   function upload() {
+    // 取得 Token（Token 僅需要設定一次）
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    
+    // 確認是否登入
+    axios.defaults.headers.common['Authorization'] = token;
+
     // #1 撰寫上傳的 API 事件
+    const file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('file-to-upload', file)
+    
+    axios.post(`${url}/api/${path}/admin/upload`, formData)
+      .then((res)=>{
+        console.log(res.data);
+      })
+      .catch((err)=>{
+        console.dir(err)
+      })
   }
 
   </script>
