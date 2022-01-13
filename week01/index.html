@@ -48,7 +48,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="product in products">
+                  <tr v-for="product in products" :key="product.id">
                     <td width="150">{{ product.title }}</td>
                     <td width="120">
                         {{ product.origin_price }}
@@ -87,7 +87,7 @@
                     </div>
                   </div>
                 </div>
-                <img v-for="(image, index) in temp.imagesUrl" :src="temp.imagesUrl[index]" :alt="temp.title + '_img' + index" class="images m-2">
+                <img v-for="(image, index) in temp.imagesUrl" :key="index" :src="temp.imagesUrl[index]" :alt="temp.title + '_img' + index" class="images m-2">
               </div>                  
               <p v-else class="text-secondary">請選擇一個商品查看</p>
             </div>
