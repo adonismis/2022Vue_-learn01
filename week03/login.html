@@ -71,58 +71,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
       integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
       crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@next"></script>
-
-    <script>
-
-
-        Vue.createApp({
-            data() {
-                return {
-                    url      : 'https://vue3-course-api.hexschool.io/v2',
-                    path     : 'adonismis',
-                    token    : document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
-                    products : [],
-                    user     : {
-                                    username : '',
-                                    password : ''
-                                },
-                }
-            },
-            methods: {
-                getcheck() {
-                    // 確認是否登入
-                    axios.defaults.headers.common['Authorization'] = this.token;
-
-                    axios.post(`${this.url}/api/user/check`)
-                    .then((req)=>{
-                        document.location.href="/2022Vue_-learn01/week03/index.html";
-                    })
-                    .catch((err)=>{
-                        console.dir(err);
-                    });    
-                },
-                signin() {
-                    axios.post(`${this.url}/admin/signin`, this.user)
-                    .then((res)=>{
-                        const {token, expires} = res.data;
-                        document.cookie = `hexToken=${token}; expires=${new Date(expires)};`;
-                        this.token = token;
-                        
-                        this.getcheck();
-                    })
-                    .catch((err)=>{
-                        console.dir(err)
-                    })
-                }
-            },
-            mounted() {
-                this.getcheck();
-            }
-        }).mount('#app');
-
-
-    </script>
+    <script src="login.js?2022012201"  type="module"></script>
   </body>
 
 </html>
