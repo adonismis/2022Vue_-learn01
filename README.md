@@ -4,4 +4,4 @@
 
 [第二週 - RESTful API 串接](https://adonismis.github.io/2022Vue_-learn01/week02/index.html)
 
-[第三週 - 開始熟練 Vue.js](https://adonismis.github.io/2022Vue_-learn01/week02/index.html)
+[第三週 - 開始熟練 Vue.js](https://adonismis.github.io/2022Vue_-learn01/week03/index.html)
