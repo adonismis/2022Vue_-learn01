@@ -7,7 +7,7 @@ createApp({
     return {
       imgUrl: "",
       addPicUrl: "",
-      tempProdcut: "",
+      tempProdcut: {},
       products: [],
       token: document.cookie.replace(
         /(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/,
@@ -50,7 +50,7 @@ createApp({
         description: "",
         id: "",
         imageUrl: "",
-        imagesUrl: "",
+        imagesUrl: [],
         is_enabled: "",
         origin_price: "",
         price: "",
@@ -123,12 +123,15 @@ createApp({
       alert("圖片已刪除，請點再選「確認」鈕以利存檔!");
     },
     errAlert(err) {
-      //console.dir(err);
       const msgs = err?.data?.message;
       let msg = "發生錯誤：\n";
-      msgs.forEach(function (value) {
-        msg += value + "\n";
-      });
+      if(msgs.length > 0){
+        msgs.forEach(function (value) {
+          msg += value + "\n";
+        });
+      }else{
+        msg += msgs ;
+      }
       alert(msg);
     },
   },
