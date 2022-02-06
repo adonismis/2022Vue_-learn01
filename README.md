@@ -24,7 +24,7 @@ Promise、RESTful API、Vue 的運行
 教學關鍵字：
 computed、watch、JS 傳參考特性
 
-[第四週 - 元件化](https://adonismis.github.io/2022Vue_-learn01/week04/index.html)
+### [第四週 - 元件化](https://adonismis.github.io/2022Vue_-learn01/week04/index.html)
 一個專業的開發者，開發的過程中一定會掌握「DRY」 的觀念（don't repeat yourself），精準的拆分模組並增加每段程式碼的可用性，邁向專業開發者的道路吧
 
 作品主題：模組功能設計
