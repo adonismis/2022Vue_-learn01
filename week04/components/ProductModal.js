@@ -288,7 +288,6 @@ export const ProductModal = {
       alert(msg);
     },
     updateProductEmit(option) {
-      console.log(option);
       this.$emit('emit_product', option); 
     },
   },
