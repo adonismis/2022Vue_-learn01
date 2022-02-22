@@ -32,7 +32,7 @@ computed、watch、JS 傳參考特性
 教學關鍵字：
 Component、life cycle
 
-### 第五週：進階語法介紹
+### [第五週：進階語法介紹](https://adonismis.github.io/2022Vue_-learn01/week05/index.html)
 前幾章節已經介紹了 Vue 的大部分運用方法，掌握後已經足以應對大部分的開發情境，本段將回到觀念的介紹，讓你更能了解框架是如何運作以及遇到問題是如何排除！
 
 作品主題：表單驗證實戰
