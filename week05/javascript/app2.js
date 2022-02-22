@@ -3,7 +3,6 @@ import { config } from './config.js'; //設定檔相關變數
  export const app = {
   init(){
     //----------- Vue起手式 -----------//
-
     Object.keys(VeeValidateRules).forEach(rule => {
         if (rule !== 'default') {
           VeeValidate.defineRule(rule, VeeValidateRules[rule]);
@@ -32,7 +31,8 @@ import { config } from './config.js'; //設定檔相關變數
           productsArray: {},
           fullPage: true,
           isLoadingId: '', 
-          orderUser:{}
+          user: {},
+          message:''
         };
       },
       methods: {
@@ -100,15 +100,22 @@ import { config } from './config.js'; //設定檔相關變數
           return phoneNumber.test(value) ? true : '需要正確的電話號碼'
         },
         onSubmit(){
-          console.log(this.orderUser);
+          const data = {
+            user: this.user,
+            message: this.message
+          };
+          axios.post(`${this.url}/api/${this.path}/order`, { data }).then((res) => {
+            console.log(res);
+            alert("老師，助教：很懶!!寫的亂些~辛苦了!");
 
-          alert("老師，助教：很懶!!寫的亂些~辛苦了!");
+            this.getCart();
+          });
+          
         }
       },
       mounted() {
         this.getProducts();
         this.getCart();
-
       },
       computed: {
       }
