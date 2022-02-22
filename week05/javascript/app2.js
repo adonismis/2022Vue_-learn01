@@ -31,10 +31,9 @@ import { config } from './config.js'; //設定檔相關變數
           cartData: '',
           productsArray: {},
           fullPage: true,
-          isLoadingId: ''
+          isLoadingId: '', 
+          orderUser:{}
         };
-      },
-      components: {        
       },
       methods: {
         getProducts() {
@@ -95,6 +94,15 @@ import { config } from './config.js'; //設定檔相關變數
             this.getCart();
             alert("清空清空購物車完成!");
           });
+        },
+        isPhone(value) {
+          const phoneNumber = /^(09)[0-9]{8}$/
+          return phoneNumber.test(value) ? true : '需要正確的電話號碼'
+        },
+        onSubmit(){
+          console.log(this.orderUser);
+
+          alert("老師，助教：很懶!!寫的亂些~辛苦了!");
         }
       },
       mounted() {
